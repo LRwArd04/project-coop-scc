@@ -1,0 +1,4 @@
+def outliers(iterable):
+##Outliers are defined as 1.5 times the interquartile range + the 75th percentile. We decided to change the multiplier to something that made
+    for i in iterable:
+        
