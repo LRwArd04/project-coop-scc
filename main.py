@@ -3,6 +3,8 @@ import data_analysis
 import trend_and_line
 import random
 
+file = open('datas.txt', 'w')
+
 #time = [int(i) for i in data_analysis.simple_column_ints('Minnesota Crime Stats', '  ')[0]]
 #rate = [int(i) for i in data_analysis.simple_column_ints('Minnesota Crime Stats', '  ')[1]]
 #time = [int(i) for i in data_analysis.simple_column_ints('NM Crime Stats', ' \t')[0]]
@@ -115,7 +117,8 @@ print("y-int:\t", trend_and_line.recent_trend(time, rate)[1])
 print("val1:\t", time[0]*trend_and_line.recent_trend(time, rate)[0])
 print("val0:\t", time[-1]*trend_and_line.recent_trend(time, rate)[0])
 
-graphs.show()
+graphs.show(trend_and_line.average([0*trend_and_line.recent_trend(time, rate)[0]+trend_and_line.recent_trend(time, rate)[1], rate[-1]*trend_and_line.line_sign(time, rate, [x[1] for x in individual_weights])+ rate[-1]]))
 
+file.write(str(trend_and_line.average([0*trend_and_line.recent_trend(time, rate)[0]+trend_and_line.recent_trend(time, rate)[1], rate[-1]*trend_and_line.line_sign(time, rate, [x[1] for x in individual_weights])+ rate[-1]])))
 
 #MISSING FROM Minnesota: 2018  124243
