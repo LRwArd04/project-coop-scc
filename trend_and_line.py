@@ -24,16 +24,17 @@ def find_intercept(m, x, y):
         intercept = 0
         distances = []
         for i in range(len(x)):
+            #print(m, x[i], intercept)
             point = m*x[i]+intercept
             distances.append(y[i]-point)
 
             #print("pointPOINTpointPOINT", point, "xXxX", x[i], "yYyY", y[i], "The end:", point-y[i])
 
-        print("\t", distances, "\n\t", x, "\n\t", y)
+        #print("\t", distances, "\n\t", x, "\n\t", y)
         intercept_min = average(distances)
-        print(intercept_min)
-        print(m*x[0])
-        print(intercept_min-(m*x[0]))
+        #print(intercept_min)
+        #print(m*x[0])
+        #print(intercept_min-(m*x[0]))
 
         return(intercept_min+(m*x[0]))
 
@@ -76,10 +77,13 @@ def recent_trend(iter_x, iter_y):
         x.append(iter_x[-(i+1)])
         y.append(iter_y[-(i+1)])
 
-    line = None
-    prev = None
-    recent = [x[i] for i in range(5)]
-    for i in range(len(x)-5):
+    line = 0
+    prev = 0
+    if len(x) >= 5:
+        recent = [x[i] for i in range(5)]
+    else:
+        recent = [x[i] for i in range(len(x))]
+    for i in range(len(x)-len(recent)):
         line = lin_reg(x[0:i+5], y[0:i+5])
         if prev != None:
             if line < prev * 1.15 and line > prev * 0.95:
@@ -89,7 +93,7 @@ def recent_trend(iter_x, iter_y):
                 #print(line)
                 break
 
-        prev = line
+        #prev = line
 
     #print("line", line, "\tprev", prev, "\trecent", recent)
     #print(recent, y[0:i+5])
