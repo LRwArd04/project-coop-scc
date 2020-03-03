@@ -13,8 +13,8 @@ file = open('datas.txt', 'w')
 #rate = [int(i) for i in data_analysis.simple_column_ints('CO Crime Stats', '\t')[1]]
 #time = [int(i) for i in data_analysis.simple_column_ints('AL Crime Stats', '\t')[0]]
 #rate = [int(i) for i in data_analysis.simple_column_ints('AL Crime Stats', '\t')[1]]
-time = [int(i) for i in data_analysis.simple_column_ints('NY Crime Stats', '\t')[0]]
-rate = [int(i) for i in data_analysis.simple_column_ints('NY Crime Stats', '\t')[1]]
+time = [int(i) for i in data_analysis.simple_column_ints('CO Crime Stats', '\t')[0]]
+rate = [int(i) for i in data_analysis.simple_column_ints('CO Crime Stats', '\t')[1]]
 
 print("BITIME", time, rate)
 
@@ -72,10 +72,10 @@ def line(iter_x, iter_y):
             if u != iterations-1:
                 midpoints.clear()
         for i in range(len(iter_y)-1):
-            graphs.plot([midpoints[i][0], midpoints[i+1][0]], [midpoints[i][1], midpoints[i+1][1]], 'ro-')
+           # graphs.plot([midpoints[i][0], midpoints[i+1][0]], [midpoints[i][1], midpoints[i+1][1]], 'ro-')
             print("====================================")
             print([midpoints[i][0], midpoints[i+1][0]], [midpoints[i][1], midpoints[i+1][1]])
-            graphs.plot([iter_x[i], iter_x[i+1]], [iter_y[i], iter_y[i+1]], 'bo-')
+            graphs.plot([iter_x[i], iter_x[i+1]], [iter_y[i], iter_y[i+1]], 'b-')
         #graphs.show()
         print(change_x)
 
